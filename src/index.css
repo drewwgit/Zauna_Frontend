@@ -1,0 +1,27 @@
+#root {
+    padding-top: 75px;
+}
+
+nav {
+    margin-top: 50px;
+    height: 200px; 
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.703);
+    position: fixed;
+    top: 0;
+    display: grid;
+    border-radius: 50px;
+    box-sizing: border-box;
+    border-color: lightskyblue;
+}
+
+nav > .zaunahomelogo {
+    margin-top: 25px;
+    display: flex; 
+    justify-content: center;
+    flex-direction: row;
+}
+
+ .zaunahomelogo > img {
+    height: 150px;
+}
