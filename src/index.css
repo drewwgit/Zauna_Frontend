@@ -1,18 +1,14 @@
-#root {
-    padding-top: 75px;
-}
 
 nav {
-    margin-top: 50px;
+    margin: 50px;
     height: 200px; 
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.703);
+    width: 90%;
+    background-color: rgb(0, 0, 0);
     position: fixed;
     top: 0;
     display: grid;
+    grid-template-columns: [first] 25% [line2] 50% [line3] 25%;
     border-radius: 50px;
-    box-sizing: border-box;
-    border-color: lightskyblue;
 }
 
 nav > .zaunahomelogo {
@@ -24,4 +20,18 @@ nav > .zaunahomelogo {
 
  .zaunahomelogo > img {
     height: 150px;
+}
+
+a.aboutus {
+    display: flex;
+    justify-content: center;
+    padding-top: 35%;
+    color: white;
+    font-size:larger;
+}
+
+nav > h1 {
+    padding-top: 20%;
+    color: white;
+    padding-left: 15px;
 }
