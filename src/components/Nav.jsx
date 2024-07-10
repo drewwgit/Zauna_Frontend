@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
-import MenuBar from "./MenuBar";
+import HamburgerMenu from "./HamburgerMenu";
 import ZaunaWhite from "../assets/ZaunaWhite.png"
+import "../index.css"
 
 function Nav() {
     return (
@@ -12,7 +13,7 @@ function Nav() {
         <Link to ={"/"} className = "zaunahomelogo">
         <img src={ZaunaWhite} />
         </Link>
-        <MenuBar />
+        <HamburgerMenu />
       </nav>
       </>
     );
