@@ -9,6 +9,16 @@
     font-family: Nunito, sans-serif;  
 }
 
+#root {
+    padding-top: 250px; 
+}
+
+body {
+    font-size: 19px; 
+    color:black;
+}
+
+
 nav {
     margin: 50px;
     height: 200px; 
@@ -35,7 +45,8 @@ nav > .zaunahomelogo {
 a.aboutus {
     display: flex;
     justify-content: center;
-    padding-top: 35%;
+    padding-top: 25%;
+    margin-left: 35px; 
     color: white;
     font-size:larger;
     text-decoration: none;
@@ -108,3 +119,12 @@ nav > h1 {
     color: #349eeb;
 }
 
+
+/* DIV HOME PAGE STYLING */
+
+.home-container {
+    padding: 50px;
+    margin: 50px;
+    border-radius: 50px;
+    background-color: #349feba9;
+}
