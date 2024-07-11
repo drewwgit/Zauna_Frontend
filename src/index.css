@@ -128,3 +128,36 @@ nav > h1 {
     border-radius: 50px;
     background-color: #349feba9;
 }
+
+/* ACCOUNT PAGE STYLING */
+
+.main-layout {
+    display: flex; 
+  }
+  
+  .sidebar {
+    width: 400px; 
+    height: 1000px;
+    background-color: #349feb8e; 
+    padding: 20px; 
+    border-right: 1px solid #ddd; 
+  }
+  
+  .sidebar ul {
+    list-style-type: none; 
+    padding: 0; 
+  }
+  
+  .sidebar ul li {
+    margin: 10px 0; 
+  }
+  
+  .sidebar ul li a {
+    text-decoration: none; 
+    color: #333; 
+  }
+  
+  .content {
+    flex: 1; 
+    padding: 20px; 
+  }
