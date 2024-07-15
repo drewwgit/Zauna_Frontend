@@ -65,7 +65,7 @@ function GymBookings() {
 
   return (
     <div className="gym-bookings">
-      <h2>Book a Gym Time</h2>
+      <h1>Book a Gym Time</h1>
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="date">Date:</label>
