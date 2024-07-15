@@ -2,7 +2,18 @@ import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import "../index.css"
 
-const MainAccountPageLayout = () => {
+const MainAccountPageLayout = ({isLoggedIn}) => {
+
+const token = localStorage.getItem('token');
+
+if (!token) {
+  return <div className="please-login">
+          <Link to={"/login"}>Please Login to Zauna to View The My Account Page</Link>
+        </div>
+        ;
+}
+
+  
   return (
     <div className="main-layout">
       <aside className="sidebar">

@@ -1,50 +1,70 @@
-import React from "react";
-import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "../index.css"
+import { format, parseISO } from "date-fns"; 
+import "../index.css";
 
 function GymBookings() {
   const [date, setDate] = useState('');
   const [timeSlot, setTimeSlot] = useState('');
   const [confirmationMessage, setConfirmationMessage] = useState('');
   const [bookings, setBookings] = useState([]);
+  const [userId, setUserId] = useState(null);
+
+  const timeSlots = [
+    "6:00 AM - 7:00 AM", "7:00 AM - 8:00 AM", "8:00 AM - 9:00 AM",
+    "9:00 AM - 10:00 AM", "10:00 AM - 11:00 AM", "11:00 AM - 12:00 PM",
+    "12:00 PM - 1:00 PM", "1:00 PM - 2:00 PM", "3:00 PM - 4:00 PM",
+    "4:00 PM - 5:00 PM", "5:00 PM - 6:00 PM", "6:00 PM - 7:00 PM",
+    "7:00 PM - 8:00 PM"
+  ];
 
   useEffect(() => {
-    const fetchBookings = async () => {
-      try {
-        const response = await axios.get('http://localhost:8080/api/gym-bookings');
-        setBookings(response.data);
-      } catch (error) {
-        console.error('Failed to fetch gym bookings', error);
-      }
-    };
+    const token = localStorage.getItem('token');
+    if (token) {
+      const decodedToken = JSON.parse(atob(token.split('.')[1]));
+      setUserId(decodedToken.userId); 
 
-    fetchBookings();
+      const fetchBookings = async () => {
+        try {
+          const response = await axios.get(`http://localhost:8080/api/user/${decodedToken.userId}/gym-bookings`, {
+            headers: {
+              'Authorization': `Bearer ${token}`
+            }
+          });
+          setBookings(response.data);
+        } catch (error) {
+          console.error('Failed to fetch gym bookings', error);
+        }
+      };
+
+      fetchBookings();
+    }
   }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log('User ID:', userId); 
     try {
       const response = await axios.post('http://localhost:8080/api/gym-bookings', {
-        userId: 1,
+        userId,
         date,
         timeSlot
+      }, {
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('token')}`
+        }
       });
 
-      const formattedDate = new Date(response.data.date).toLocaleDateString();
-      const formattedTime = new Date(response.data.date).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-
-      setConfirmationMessage(`Booking confirmed for ${formattedDate} at ${formattedTime}`);
+      setConfirmationMessage(`Booking confirmed for ${new Date(date).toLocaleDateString()} at ${timeSlot}`);
       setBookings([...bookings, response.data]);
     } catch (error) {
+      console.error('Error booking gym time:', error);
       setConfirmationMessage('Failed to book a gym time. Please try again.');
     }
   };
 
   return (
     <div className="gym-bookings">
-    <img src ="https://www.charlotteobserver.com/latest-news/wcmkjr/picture284543285/alternates/FREE_1140/mja09349.jpeg" height="600px"></img>
       <h2>Book a Gym Time</h2>
       <form onSubmit={handleSubmit}>
         <div>
@@ -66,38 +86,24 @@ function GymBookings() {
             required
           >
             <option value="">Select a time slot</option>
-            <option value="6:00 AM - 7:00 AM">6:00 AM - 7:00 AM</option>
-            <option value="7:00 AM - 8:00 AM">7:00 AM - 8:00 AM</option>
-            <option value="8:00 AM - 9:00 AM">8:00 AM - 9:00 AM</option>
-            <option value="9:00 AM - 10:00 AM">9:00 AM - 10:00 AM</option>
-            <option value="10:00 AM - 11:00 AM">10:00 AM - 11:00 AM</option>
-            <option value="11:00 AM - 12:00 PM">11:00 AM - 12:00 PM</option>
-            <option value="12:00 PM - 1:00 PM">12:00 PM - 1:00 PM</option>
-            <option value="1:00 PM - 2:00 PM">1:00 PM - 2:00 PM</option>
-            <option value="3:00 PM - 4:00 PM">3:00 PM - 4:00 PM</option>
-            <option value="4:00 PM - 5:00 PM">4:00 PM - 5:00 PM</option>
-            <option value="5:00 PM - 6:00 PM">5:00 PM - 6:00 PM</option>
-            <option value="6:00 PM - 7:00 PM">6:00 PM - 7:00 PM</option>
-            <option value="7:00 PM - 8:00 PM">7:00 PM - 8:00 PM</option>
+            {timeSlots.map((slot, index) => (
+              <option key={index} value={slot}>{slot}</option>
+            ))}
           </select>
         </div>
         <button type="submit">Book Now</button>
       </form>
       {confirmationMessage && <p>{confirmationMessage}</p>}
-      <h3>Existing Bookings</h3>
+      <h3>Your Bookings</h3>
       <ul>
-        {bookings.length > 0 ? (
-          bookings.map(booking => (
-            <li key={booking.id}>
-              {new Date(booking.date).toLocaleDateString()} at {new Date(booking.date).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+        {bookings.map(booking => (
+          <li key={booking.id}>
+            {format(parseISO(booking.date), "MMMM do, yyyy")} at {booking.timeSlot}
             </li>
-          ))
-        ) : (
-          <p>No bookings found.</p>
-        )}
+        ))}
       </ul>
     </div>
   );
-};
+}
 
 export default GymBookings;
