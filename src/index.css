@@ -86,10 +86,10 @@ nav > h1 {
     cursor: pointer;
     color: #ffffff; 
     display: flex;
-    justify-content: left;
+    justify-content: right;
     flex-direction: row;
     margin-top: 70px;
-    z-index: 10; 
+    margin-right: 70px;
 }
 
 .nav-menu {
@@ -178,6 +178,35 @@ nav > h1 {
   .content {
     flex: 1; 
     padding: 20px; 
+    width: 100%;
+  }
+
+
+  div.sauna-bookings {
+    width: 100%;
+  }
+
+  div.book-sauna-time {
+    display: flex; 
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+    margin: 20px;
+  }
+
+  div.book-sauna-time button {
+    background-color: #349eeb;
+    font-style: bold;
+    border-radius: 25px;
+    border-style: none;
+  }
+
+  div.book-sauna-time button:hover {
+    background-color: #349feb89;
+  }
+
+  div.current-bookings{
+    margin-left: 30px;
   }
 
 
