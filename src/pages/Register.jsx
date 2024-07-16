@@ -57,7 +57,7 @@ function Register() {
 
 
   return (
-    <div className="Register">
+    <div className="register">
     <form className="register-form" onSubmit={handleSubmit}>
       <h3>Welcome! Please Fill Out The Below Fields to Register To Zauna.</h3>
       {error && <p style={{ color: "red" }}>{error}</p>}
@@ -65,7 +65,7 @@ function Register() {
       <input
         value={name}
         onChange={(e) => setName(e.target.value)}
-        placeholder="Enter your name ...."
+        placeholder="Enter your first and last name ...."
       />
       <br />
       <input

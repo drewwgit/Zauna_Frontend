@@ -12,7 +12,7 @@
 #root {
     display: flex; 
     flex: 1; 
-    padding-top: 190px; 
+    padding-top: 220px; 
     height: 100%;
 }
 
@@ -75,6 +75,71 @@ nav > h1 {
     padding-left: 15px;
 }
 
+
+/* DIV HOME PAGE STYLING */
+
+.home-container {
+  padding: 50px;
+  margin: 50px;
+  border-radius: 50px;
+  background-color: #349feb;
+}
+
+
+/* LOGIN PAGE STYLING */
+
+div.login {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #349eeb;
+  border-radius: 50px;
+  margin-left: 80px;
+}
+
+form.login-form {
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+}
+
+form.login-form button:hover {
+  background-color: #cd09fe;
+}
+
+/* REGISTER PAGE STYLING */
+
+div.register {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #349eeb;
+  border-radius: 50px;
+  margin-left: 80px;
+}
+
+form.register-form {
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+}
+
+form.register-form input {
+  width: 50%;
+}
+
+div.please-login {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+div.please-login a {
+  font-size: x-large;
+}
 /* HAMBURGER MENU STYLING */
 
 .hamburger-menu {
@@ -107,7 +172,6 @@ nav > h1 {
 }
 
 .nav-menu.active {
-    margin-top: 15px;
     display: flex;
     height: 150px; 
 }
@@ -133,14 +197,6 @@ nav > h1 {
 }
 
 
-/* DIV HOME PAGE STYLING */
-
-.home-container {
-    padding: 50px;
-    margin: 50px;
-    border-radius: 50px;
-    background-color: #349feba9;
-}
 
 /* ACCOUNT PAGE STYLING */
 

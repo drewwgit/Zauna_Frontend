@@ -52,11 +52,11 @@ function Login() {
         }
 
   return (
-    <div className = "Login">
+    <div className = "login">
     <form className = "login-form" onSubmit={handleSubmit}>
     {registrationSuccessMessage&& <p style={{ color: "green" }}>{registrationSuccessMessage}</p>}
-      <h2> Login To Your DAT Music Account </h2>
-      <h3>Enter your Username</h3>
+      <h2> Login To Your Zauna Membership Account </h2>
+      <h3>Enter your Email</h3>
     <input type = "username" value = {email} onChange={(e)=> setEmail(e.target.value)} placeholder={"Enter Your Email"} />
     <h3>Enter Password</h3>
     <input type = "password" value = {password} onChange={(e)=> setPassword(e.target.value)} placeholder={"Password"} />
