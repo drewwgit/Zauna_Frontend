@@ -4,9 +4,14 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import "../index.css"
 
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+
 function SaunaBookings() {
     const [bookings, setBookings] = useState([]);
+    const [errorMessage, setErrorMessage] = useState('');
     const [saunaRooms, setSaunaRooms] = useState([]);
+    const [selectedDate, setSelectedDate] = useState(new Date());
     const [selectedRoom, setSelectedRoom] = useState(null);
     const [selectedTimeSlot, setSelectedTimeSlot] = useState('');
     const [confirmationMessage, setConfirmationMessage] = useState('');
@@ -38,7 +43,7 @@ function SaunaBookings() {
 
       const fetchBookings = async () => {
         try {
-          const userId = JSON.parse(atob(token.split('.')[1])).userId; // Decode token to get userId
+          const userId = JSON.parse(atob(token.split('.')[1])).userId;
           const response = await axios.get(`http://localhost:8080/api/user/${userId}/sauna-bookings`, {
             headers: {
               'Authorization': `Bearer ${token}`
@@ -74,14 +79,15 @@ function SaunaBookings() {
         const response = await axios.post('http://localhost:8080/api/sauna-bookings', {
           userId,
           saunaRoomId: selectedRoom,
-          date,
+          date: selectedDate.toISOString().split('T')[0],
           timeSlot: selectedTimeSlot
         }, {
           headers: {
             'Authorization': `Bearer ${token}`
           }
         });
-        setConfirmationMessage(`Booking confirmed for Sauna Room ${selectedRoom} at ${selectedTimeSlot} !`);
+        setConfirmationMessage(`Booking confirmed for Sauna Room ${selectedRoom} on ${selectedDate.toDateString()} at ${selectedTimeSlot} !`);
+        setErrorMessage('');
 
         setTimeout(() => {
           navigate(0);
@@ -89,8 +95,16 @@ function SaunaBookings() {
 
       } catch (error) {
         console.error('Failed to book sauna time', error);
-        setConfirmationMessage('Failed to book a sauna time. Feel free to try again!');
+        setErrorMessage(error.response.data.error || 'Failed to book a sauna time. Feel free to try again!');
+        setConfirmationMessage('');
       }
+    };
+
+    const isDateSelectable = (date) => {
+      const today = new Date();
+      const dayAfterTomorrow = new Date();
+      dayAfterTomorrow.setDate(today.getDate() + 2);
+      return date >= today && date <= dayAfterTomorrow;
     };
 
   return (
@@ -98,6 +112,21 @@ function SaunaBookings() {
       <h1>Welcome to your Zauna Sauna Bookings Page!</h1>
       <img src = "https://images.ctfassets.net/r7p9m4b1iqbp/5DdByuBLVsDkyPqZVAPMGn/e1c084b1b51e032a01d91cf880680317/personal-sauna-sun-homes.jpeg?w=600&q=85&fm=jpg&fl=progressive"></img>
       <h2>Book Sauna Rooms</h2>
+
+
+      <div>
+        <label>Select a Date: </label>
+        <DatePicker
+          selected={selectedDate}
+          onChange={date => setSelectedDate(date)}
+          filterDate={isDateSelectable}
+          minDate={new Date()}
+          maxDate={new Date(new Date().setDate(new Date().getDate() + 2))}
+          dateFormat="MMMM d, yyyy"
+        />
+      </div>
+
+
       <div className="book-sauna-time">
         <div className="sauna-rooms"> 
         <h3>Select Your Sauna Room Below to View Available Times</h3>
@@ -125,6 +154,7 @@ function SaunaBookings() {
           </div>
       )}
       {confirmationMessage && <p>{confirmationMessage}</p>}
+      {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
 
       <div className="current-bookings">
       <h3>My Current Bookings</h3>
