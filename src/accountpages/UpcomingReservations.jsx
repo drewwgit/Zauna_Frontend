@@ -24,7 +24,7 @@ function UpcomingReservations(){
           });
           setGymBookings(response.data);
         } catch (error) {
-          console.error('Failed to fetch gym bookings', error);
+          console.error('Failed to fetch Gym bookings', error);
         }
       };
 
@@ -38,7 +38,7 @@ function UpcomingReservations(){
           });
           setSaunaBookings(response.data);
         } catch (error) {
-          console.error('Failed to fetch bookings', error);
+          console.error('Failed to fetch Sauna bookings', error);
         }
       };
 

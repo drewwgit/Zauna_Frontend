@@ -48,7 +48,7 @@ function MyAccount({ isLoggedIn }){
   }
 
   return (
-    <div>
+    <div className="account-home">
       <h1>Welcome to your Zauna Profile, {userData.name}!</h1>
       <img src="https://media.istockphoto.com/id/1366052585/photo/shot-of-a-group-of-friends-hanging-out-before-working-out-together.jpg?s=612x612&w=0&k=20&c=rj7LgjUuXde0eLWikS1rvDnsKDdBotgsy9eM5HDzko0=" alt="Group of friends hanging out before working out"></img>
       <p>Getting Started!</p>

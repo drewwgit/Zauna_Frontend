@@ -2,34 +2,53 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Zauna from "../assets/Zauna.png"
+import maingympicture from "../assets/maingympicture.jpg"
+import lobbypicture from "../assets/lobbypicture.jpg"
+import saunamainimage from "../assets/saunamainimage.webp"
 
-// import any other dependent files here (ex. checkout)
+const sections = [
+    {
+        id: 1,
+        imageUrl: maingympicture,
+        title: "The Zauna Lifestyle",
+        subtitle: "Experience the world's best luxury gym and sauna experience",
+        buttonText: 'Join Now',
+        buttonLink: '#jointoday'
+    },
+
+    {
+        id: 2,
+        imageUrl: lobbypicture,
+        title: 'Membership with Benefits',
+        subtitle: "Say goodbye to the crowds, workout and cleanse your body the right way",
+        buttonText: "Learn More About Zauna",
+        buttonLink: '#learnmore',
+    },
+
+    {
+        id: 3,
+        imageUrl: saunamainimage,
+        title: 'Private Sauna Rooms ',
+        subtitle: "Rejuvenate your body the right way. Privately",
+        buttonText: "Learn More About Sauna Benefits",
+        buttonLink: '#sauna',
+    },
+]
 
 function Welcome() {
   return(
-    <div className="home-container">
-    <header className="header">
-        <h1>Welcome to the Zauna Lifestyle - Home of All of your Gym & Sauna Needs</h1>
-        <p>Your health and wellness journey starts here.</p>
-    </header>
-
-    <section className="benefits-section">
-        <h2>Benefits of Health & Wellness</h2>
-        <div className="benefit">
-            <h3>Physical Fitness</h3>
-            <p>Improve your strength, flexibility, and endurance.</p>
+    <div className="home-page">
+        {sections.map(section => (
+            <div key = {section.id} className="section" style = {{ backgroundImage: `url(${section.imageUrl})` }}>
+                <div className = "overlay"> 
+                    <h1>{section.title}</h1>
+                    <p>{section.subtitle}</p>
+                    <a href ={section.buttonLink} className="button">{section.buttonText}</a>
+                </div>
         </div>
-        <div className="benefit">
-            <h3>Mental Wellbeing</h3>
-            <p>Reduce stress and improve your mood.</p>
-        </div>
-        <div className="benefit">
-            <h3>Overall Health</h3>
-            <p>Boost your immune system and increase longevity.</p>
-        </div>
-    </section>
+        ))}
     </div>
-  ) 
+  );
 }
 
 export default Welcome;
