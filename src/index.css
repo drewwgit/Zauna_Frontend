@@ -56,9 +56,7 @@ nav > .zaunahomelogo {
 
 a.aboutus {
     display: flex;
-    justify-content: center;
-    padding-top: 20%;
-    margin-left: 35px; 
+    flex-direction: column;
     color: white;
     font-size:larger;
     text-decoration: none;
@@ -74,6 +72,104 @@ nav > h1 {
     padding-left: 15px;
 }
 
+div.navlinks {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* HAMBURGER MENU STYLING */
+
+.hamburger-menu {
+  position: relative;
+}
+
+.menu-icon {
+  font-size: 35px;
+  cursor: pointer;
+  color: #ffffff; 
+  display: flex;
+  justify-content: right;
+  flex-direction: row;
+  margin-top: 70px;
+  margin-right: 70px;
+}
+
+.menu-icon:hover {
+color: #349eeb;
+}
+
+.nav-menu {
+  margin-top: 5px; 
+  margin-bottom: 10px; 
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  background-color: #00000050;
+  position: absolute;
+  width: 100px;
+  height: 100px; 
+  border-radius: 25px;
+  z-index: 9; 
+}
+
+.nav-menu.active {
+  display: flex;
+  height: 150px; 
+}
+
+.nav-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-menu ul li {
+  margin: 1rem 0;
+}
+
+.nav-menu ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: medium; 
+}
+
+.nav-menu ul li a:hover {
+  color: #349eeb;
+}
+
+
+/* FOOTER STYLING */
+.footer {
+  background: #000;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.footer p {
+  margin-bottom: 10px;
+}
+
+.footer ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+
+.footer ul li {
+  margin: 0 10px;
+}
+
+.footer ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.footer ul li a:hover {
+  color: #349eeb;
+}
 
 /* DIV HOME PAGE STYLING */
 
@@ -132,24 +228,37 @@ nav > h1 {
 /* LOGIN PAGE STYLING */
 
 div.login {
-  width: 90%;
+  width: 100%;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: #349eeb;
-  border-radius: 50px;
-  margin-left: 80px;
-  margin-top: 30px; 
+  align-items: center;
+  /* border-radius: 50px; */
+  /* margin-top: 30px;  */
 }
 
 form.login-form {
   display: flex;
   flex-direction: column; 
   align-items: center;
+  background-color: rgba(0, 0, 0, 0.735);
+  width: 85%;
+  border-radius: 50px;
 }
 
 form.login-form button:hover {
   background-color: #cd09fe;
+}
+
+form.login-form h2 {
+  color: #349eeb;
+} h3 {
+  color: white;
+}
+
+form.login-form a {
+  color: white;
 }
 
 /* REGISTER PAGE STYLING */
@@ -185,67 +294,6 @@ div.please-login {
 div.please-login a {
   font-size: x-large;
 }
-/* HAMBURGER MENU STYLING */
-
-.hamburger-menu {
-    position: relative;
-}
-
-.menu-icon {
-    font-size: 35px;
-    cursor: pointer;
-    color: #ffffff; 
-    display: flex;
-    justify-content: right;
-    flex-direction: row;
-    margin-top: 70px;
-    margin-right: 70px;
-}
-
-.menu-icon:hover {
-  color: #349eeb;
-}
-
-.nav-menu {
-    margin-top: 5px; 
-    margin-bottom: 10px; 
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    background-color: #00000050;
-    position: absolute;
-    width: 100px;
-    height: 100px; 
-    border-radius: 25px;
-    z-index: 9; 
-}
-
-.nav-menu.active {
-    display: flex;
-    height: 150px; 
-}
-
-.nav-menu ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.nav-menu ul li {
-    margin: 1rem 0;
-}
-
-.nav-menu ul li a {
-    text-decoration: none;
-    color: white;
-    font-size: medium; 
-}
-
-.nav-menu ul li a:hover {
-    color: #349eeb;
-}
-
-
 
 /* ACCOUNT PAGE STYLING */
 
@@ -396,4 +444,3 @@ form button:hover {
     background-color: #349eeb;
   }
 
-    /* SAUNA BOOKINGS STYLING */

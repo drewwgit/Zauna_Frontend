@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import spa from "../assets/spa.jpg"
+
 // import any other dependent files here (ex. checkout)
 
 function Login() {
@@ -52,7 +54,7 @@ function Login() {
         }
 
   return (
-    <div className = "login">
+    <div className = "login" style={{ backgroundImage: `url(${spa})` }}>
     <form className = "login-form" onSubmit={handleSubmit}>
     {registrationSuccessMessage&& <p style={{ color: "green" }}>{registrationSuccessMessage}</p>}
       <h2> Login To Your Zauna Membership Account </h2>
