@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-
+import mountains from "../assets/mountains.jpg"
 // import any other dependent files here (ex. checkout)
 
 function Register() {
@@ -57,7 +57,7 @@ function Register() {
 
 
   return (
-    <div className="register">
+    <div className="register" style={{ backgroundImage: `url(${mountains})` }}>
     <form className="register-form" onSubmit={handleSubmit}>
       <h3>Welcome! Please Fill Out The Below Fields to Register To Zauna.</h3>
       {error && <p style={{ color: "red" }}>{error}</p>}
