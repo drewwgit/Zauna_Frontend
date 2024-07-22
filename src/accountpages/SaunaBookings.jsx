@@ -6,6 +6,8 @@ import "../index.css"
 
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import saunamainimage from "../assets/saunamainimage.webp"
+
 
 function SaunaBookings() {
     const [bookings, setBookings] = useState([]);
@@ -94,12 +96,32 @@ function SaunaBookings() {
 
         setTimeout(() => {
           navigate(0);
-        }, 2000);
+        }, 500);
 
       } catch (error) {
         console.error('Failed to book sauna time', error);
         setErrorMessage(error.response.data.error || 'Failed to book a sauna time. Feel free to try again!');
         setConfirmationMessage('');
+      }
+    };
+
+    const handleCancelBooking = async (bookingId) => {
+      try {
+        const response = await axios.delete(`http://localhost:8080/api/sauna-bookings/${bookingId}`, {
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        });
+        setConfirmationMessage('Booking cancelled successfully!');
+        setBookings(bookings.filter(booking => booking.id !== bookingId));
+
+        setTimeout(() => {
+          navigate(0);
+        }, 500);
+        
+      } catch (error) {
+        console.error('Failed to cancel the booking', error);
+        setErrorMessage('Failed to cancel the booking. Please try again.');
       }
     };
 
@@ -115,7 +137,7 @@ function SaunaBookings() {
     };
 
   return (
-    <div className="sauna-bookings">
+    <div className="sauna-bookings" >
       <h1>Welcome to your Zauna Sauna Bookings Page!</h1>
       <div className="current-bookings">
       <h3>My Current Bookings</h3>
@@ -124,6 +146,7 @@ function SaunaBookings() {
           bookings.map(booking => (
             <li key={booking.id}>
               Sauna Room {booking.saunaRoomId} on {new Date(booking.date).toLocaleDateString()} at {booking.timeSlot}
+              <button onClick={() => handleCancelBooking(booking.id)}>Cancel</button>
             </li>
           ))
         ) : (
@@ -131,8 +154,6 @@ function SaunaBookings() {
         )}
       </ul>
       </div>
-      <img src = "https://images.ctfassets.net/r7p9m4b1iqbp/5DdByuBLVsDkyPqZVAPMGn/e1c084b1b51e032a01d91cf880680317/personal-sauna-sun-homes.jpeg?w=600&q=85&fm=jpg&fl=progressive"></img>
-      <h2>Book Sauna Rooms</h2>
 
     <div className="book-sauna-time">
     
@@ -165,8 +186,9 @@ function SaunaBookings() {
       )}
 
     { step === 2 && (
+      <div className='overall-timeslots'>
+        <h3>Available Time Slots for Sauna Room #{selectedRoom}</h3>
         <div className="time-slots">
-          <h3> Available Time Slots for Sauna Room #{selectedRoom}</h3>
           <button onClick ={handleBack}>Back</button>
           {timeSlots.map((slot, index) => (
             <button key = {index} onClick={()=>handleTimeSlotClick(slot)}>
@@ -174,6 +196,7 @@ function SaunaBookings() {
             </button>
           ))}
           <button onClick ={handleBack}>Back</button>
+          </div>
           </div>
       )}
 

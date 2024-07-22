@@ -421,74 +421,112 @@ div.account-home {
 
 /* SAUNA BOOKING STYLING */
 
+div.sauna-bookings {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-  div.sauna-bookings {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+div.date-selection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-  div.date-selection {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+div.current-bookings {
+  width: 75%; 
+  background-color: #349feb65;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 75px;
+  padding: 20px;
+}
 
-  div.current-bookings ul 
-  {
-    padding: 0; 
-  }
+div.current-bookings button {
+  margin-left: 10px;
+  padding: 5px 10px;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
 
+div.current-bookings button:hover {
+  background-color: darkred;
+}
 
-  div.book-sauna-time {
-    display: flex; 
-    flex-wrap: wrap;
-    justify-content: space-around;
-    /* align-items: center; */
-    padding: 20px;
-    margin: 20px;
-  }
+div.current-bookings ul {
+  padding: 0;
+}
 
-  div.sauna-bookings button {
-    width: 250px;
-    height: 50px; 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 15px;
-    margin: 15px;
-    font-weight: bold;
-  }
+div.book-sauna-time, div.time-slots {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+  justify-items: center;
+  padding: 20px;
+  margin: 20px;
+  width: 100%;
+  height: auto; 
+  max-height: 60vh; 
+}
 
-  div.sauna-rooms {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+div.time-slots {
+  overflow-y: auto; 
+}
 
-  div.book-sauna-time button {
-    background-color: #349eeb;
-    font-style: bold;
-    border-radius: 25px;
-    border-style: none;
-  }
+div.overall-timeslots {
+  width: 80%;
+}
 
-  div.book-sauna-time button:hover {
-    background-color: #349feb89;
-  }
+div.overall-timeslots h3 {
+  display: flex; 
+  flex-direction: column;
+  align-items: center;
+}
 
-  div.time-slots {
-    display: flex; 
-    flex-direction: column;
-    align-items: center;
-  }
+div.sauna-rooms {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-  div.confirm-booking {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+div.sauna-bookings button {
+  width: 80%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  margin-top: 20px; 
+  font-weight: bold;
+  background-color: #349eeb;
+  font-style: bold;
+  border-radius: 25px;
+  border-style: none;
+}
+
+div.book-sauna-time button:hover, div.time-slots button:hover {
+  background-color: #349feb89;
+}
+
+div.confirm-booking {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #349feb4c;
+  border-radius: 50px;
+  padding: 20px;
+}
+
+button.back-button {
+  background-color: #ccc;
+  color: #000;
+  margin-top: 10px;
+}
 
   /* FORM STYLING */
 

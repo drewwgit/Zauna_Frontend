@@ -26,10 +26,10 @@ const sections = [
     {
         id: 3,
         imageUrl: "https://static.vecteezy.com/system/resources/previews/040/724/395/non_2x/ai-generated-tranquil-forest-clearing-golden-sunlight-soothing-stream-relaxing-hammock-strong-trees-dreamy-ambiance-perfect-for-selfreflection-free-photo.jpg",
-        title: 'Private Sauna Rooms ',
-        subtitle: "Rejuvenate your body the right way. Privately",
-        buttonText: "Learn More About Sauna Benefits",
-        buttonLink: '#sauna',
+        title: 'Membership Pricing & Plans ',
+        subtitle: "You can come a Zauna Member for $42.99 a month. This flat fee allows you unlimited access to gym & sauna sessions! Learn why Zauna has over 150,000 members globally!",
+        buttonText: "Sign Up For Zauna Today!",
+        buttonLink: '/register',
     },
 ]
 
@@ -48,7 +48,7 @@ function AboutUs() {
                 </div>
         </div>
         ))}
-    {/* <footer className="footer">
+    <footer className="footer">
         <p>© 2024 Zauna. All rights reserved.</p>
         <ul>
           <li><a href="#privacy">Privacy Policy</a></li>
@@ -57,7 +57,7 @@ function AboutUs() {
           <li><a href ="#faq">FAQ</a></li>
           <li><a href ="/login">Login</a></li>
         </ul>
-    </footer> */}
+    </footer>
     </div>
   );
 }
