@@ -39,11 +39,13 @@ function Welcome() {
   return(
     <div className="home-page">
         {sections.map(section => (
-            <div key = {section.id} className="section" style = {{ backgroundImage: `url(${section.imageUrl})` }}>
-                <div className = "overlay"> 
+            <div key = {section.id} className = {`section section-${section.id}`} style = {{ backgroundImage: `url(${section.imageUrl})` }}>
+                <div className = "overlay">
+                    <div className = "content-wrapper">
                     <h1>{section.title}</h1>
                     <p>{section.subtitle}</p>
                     <a href ={section.buttonLink} className="button">{section.buttonText}</a>
+                </div>
                 </div>
         </div>
         ))}
@@ -53,6 +55,8 @@ function Welcome() {
           <li><a href="#privacy">Privacy Policy</a></li>
           <li><a href="#terms">Terms of Service</a></li>
           <li><a href="/">Back To Top</a></li>
+          <li><a href ="#faq">FAQ</a></li>
+          <li><a href ="/login">Login</a></li>
         </ul>
     </footer>
     </div>

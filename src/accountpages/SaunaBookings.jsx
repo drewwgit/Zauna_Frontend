@@ -15,6 +15,7 @@ function SaunaBookings() {
     const [selectedRoom, setSelectedRoom] = useState(null);
     const [selectedTimeSlot, setSelectedTimeSlot] = useState('');
     const [confirmationMessage, setConfirmationMessage] = useState('');
+    const [step, setStep] = useState(1);
     const token = localStorage.getItem('token');
     const navigate = useNavigate(); 
 
@@ -61,14 +62,16 @@ function SaunaBookings() {
 
     }, [token]);
 
-    // handle the clicking of the room and pass Id
+    // handle the clicking of the room and pass Id and also establish the steps 
     const handleRoomClick = (roomId) => {
       setSelectedRoom(roomId);
       setSelectedTimeSlot('');
+      setStep(2);
     }
 
     const handleTimeSlotClick = (timeSlot) => {
       setSelectedTimeSlot(timeSlot);
+      setStep(3);
     };
 
     const handleConfirmBooking = async () => {
@@ -100,6 +103,10 @@ function SaunaBookings() {
       }
     };
 
+    const handleBack = () => {
+      setStep(step-1); 
+    }
+
     const isDateSelectable = (date) => {
       const today = new Date();
       const dayAfterTomorrow = new Date();
@@ -110,52 +117,6 @@ function SaunaBookings() {
   return (
     <div className="sauna-bookings">
       <h1>Welcome to your Zauna Sauna Bookings Page!</h1>
-      <img src = "https://images.ctfassets.net/r7p9m4b1iqbp/5DdByuBLVsDkyPqZVAPMGn/e1c084b1b51e032a01d91cf880680317/personal-sauna-sun-homes.jpeg?w=600&q=85&fm=jpg&fl=progressive"></img>
-      <h2>Book Sauna Rooms</h2>
-
-
-      <div>
-        <label>Select a Date: </label>
-        <DatePicker
-          selected={selectedDate}
-          onChange={date => setSelectedDate(date)}
-          filterDate={isDateSelectable}
-          minDate={new Date()}
-          maxDate={new Date(new Date().setDate(new Date().getDate() + 2))}
-          dateFormat="MMMM d, yyyy"
-        />
-      </div>
-
-
-      <div className="book-sauna-time">
-        <div className="sauna-rooms"> 
-        <h3>Select Your Sauna Room Below to View Available Times</h3>
-        {saunaRooms.map(room => (
-            <button key={room.id} onClick={() => handleRoomClick(room.id)}>
-              Sauna Room: {room.roomNumber}
-            </button>
-          ))}
-      </div>
-      {selectedRoom && (
-        <div className="time-slots">
-          <h3> Available Time Slots for Sauna Room #{selectedRoom} </h3>
-          {timeSlots.map((slot, index) => (
-            <button key = {index} onClick={()=>handleTimeSlotClick(slot)}>
-              {slot}
-            </button>
-          ))}
-          </div>
-      )}
-      {selectedTimeSlot && (
-        <div className = "confirm-booking">
-          <h3>Confirm Booking</h3>
-          <p> Would you like to book Sauna Room {selectedRoom} at {selectedTimeSlot}?</p>
-          <button onClick={handleConfirmBooking}>Confirm</button>
-          </div>
-      )}
-      {confirmationMessage && <p>{confirmationMessage}</p>}
-      {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
-
       <div className="current-bookings">
       <h3>My Current Bookings</h3>
       <ul>
@@ -170,6 +131,64 @@ function SaunaBookings() {
         )}
       </ul>
       </div>
+      <img src = "https://images.ctfassets.net/r7p9m4b1iqbp/5DdByuBLVsDkyPqZVAPMGn/e1c084b1b51e032a01d91cf880680317/personal-sauna-sun-homes.jpeg?w=600&q=85&fm=jpg&fl=progressive"></img>
+      <h2>Book Sauna Rooms</h2>
+
+    <div className="book-sauna-time">
+    
+    { step === 1 && (
+     
+        <div className="sauna-rooms"> 
+        <h3>Select Your Sauna Room Below to View Available Times</h3>
+  
+        { step === 1 && (
+        <div className="date-selection">
+          <label>Select a Date: </label>
+          <DatePicker
+            selected={selectedDate}
+            onChange={date => setSelectedDate(date)}
+            filterDate={isDateSelectable}
+            minDate={new Date()}
+            maxDate={new Date(new Date().setDate(new Date().getDate() + 2))}
+            dateFormat="MMMM d, yyyy"
+          />
+        </div>
+      )}
+
+
+        {saunaRooms.map(room => (
+            <button key={room.id} onClick={() => handleRoomClick(room.id)}>
+              Sauna Room: {room.roomNumber}
+            </button>
+          ))}
+      </div>
+      )}
+
+    { step === 2 && (
+        <div className="time-slots">
+          <h3> Available Time Slots for Sauna Room #{selectedRoom}</h3>
+          <button onClick ={handleBack}>Back</button>
+          {timeSlots.map((slot, index) => (
+            <button key = {index} onClick={()=>handleTimeSlotClick(slot)}>
+              {slot}
+            </button>
+          ))}
+          <button onClick ={handleBack}>Back</button>
+          </div>
+      )}
+
+    { step === 3 &&  (
+        <div className = "confirm-booking">
+          <h3>Confirm Booking</h3>
+          <p> Would you like to book Sauna Room {selectedRoom} at {selectedTimeSlot}?</p>
+          <button onClick={handleConfirmBooking}>Confirm</button>
+          <button onClick ={handleBack}>Back</button>
+          </div>
+      )}
+    
+      {confirmationMessage && <p>{confirmationMessage}</p>}
+      {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
+
     </div>
     </div>
   );

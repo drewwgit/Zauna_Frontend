@@ -117,6 +117,7 @@ color: #349eeb;
 .nav-menu.active {
   display: flex;
   height: 150px; 
+  width: 150px;
 }
 
 .nav-menu ul {
@@ -183,20 +184,62 @@ color: #349eeb;
   align-items: center;
 }
 
+.section.section-1 > .overlay > div.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 50px;
+  background-color: #00000067;
+}
+
+.section.section-2 > .overlay > div.content-wrapper {
+  border-radius: 50px;
+  padding: 30px;
+  background-color: #00000067;
+  margin-left: 20px; 
+}
+
+.section.section-3 > .overlay > div.content-wrapper {
+  border-radius: 50px;
+  padding: 50px;
+  background-color: #00000067;
+  margin-right: 20px;
+}
+
+.section.section-2 > .overlay {
+  align-items: start;
+}
+
+.section.section-2 > .overlay > div.content-wrapper h1,p,a {
+  margin-left: 30px;
+}
+
+.section.section-3 > .overlay > .content-wrapper h1,p,a {
+  margin-right: 30px;
+}
+
+.section.section-3 > .overlay > .content-wrapper h1 {
+  margin-right: 30px;
+  padding-left: 20px;
+}
+
+.section.section-3 > .overlay {
+  align-items: end;
+}
+
 .overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+  background: rgba(0, 0, 0, 0.5); 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   color: white;
-  text-align: center;
-  padding: 20px; 
+  /* text-align: center; */
 }
 
 .overlay h1 {
@@ -207,7 +250,6 @@ color: #349eeb;
 
 .overlay p {
   font-size: 2em; 
-  margin: 10px 0;
 }
 
 .button {
@@ -223,6 +265,18 @@ color: #349eeb;
 
 .button:hover {
   background-color: #349eeb;
+}
+
+.content-wrapper {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 10px;
+  border-radius: 8px;
+}
+/* ABOUT US PAGE STYLING */
+
+div.about-us-page > .section.section-1 > .content-wrapper h1 {
+  display: flex;
+  align-items: start;
 }
 
 /* LOGIN PAGE STYLING */
@@ -260,7 +314,9 @@ form.login-form input {
 
 form.login-form h2 {
   color: #349eeb;
-} h3 {
+} 
+
+form.login-form h3 {
   color: white;
 }
 
@@ -296,12 +352,14 @@ form.register-form input {
 
 div.please-login {
   width: 100%;
+  height: 100vh; 
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 div.please-login a {
+  padding: 50px; 
   font-size: x-large;
 }
 
@@ -313,7 +371,7 @@ div.please-login a {
   
   .sidebar {
     width: 400px; 
-    height: 1500px; 
+    height: 100vh; 
     background-color: #349feb; 
     padding: 20px; 
     border-right: 1px solid #ddd; 
@@ -335,7 +393,7 @@ div.please-login a {
     align-items: center;
     color: #333; 
     padding: 30px;
-    font-size: x-large;
+    font-size: large;
     font-weight:bold; 
     font-style: italic;
   }
@@ -348,6 +406,7 @@ div.please-login a {
     flex: 1; 
     padding: 20px; 
     width: 100%;
+    background-color: whitesmoke;
   }
 
 
@@ -369,6 +428,18 @@ div.account-home {
     flex-direction: column;
     align-items: center;
   }
+
+  div.date-selection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  div.current-bookings ul 
+  {
+    padding: 0; 
+  }
+
 
   div.book-sauna-time {
     display: flex; 
@@ -393,7 +464,7 @@ div.account-home {
   div.sauna-rooms {
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
+    align-items: center;
   }
 
   div.book-sauna-time button {
@@ -407,10 +478,17 @@ div.account-home {
     background-color: #349feb89;
   }
 
-  div.current-bookings{
-    margin-left: 30px;
+  div.time-slots {
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
   }
 
+  div.confirm-booking {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
   /* FORM STYLING */
 
