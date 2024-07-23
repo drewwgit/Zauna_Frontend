@@ -366,7 +366,7 @@ div.please-login a {
 /* ACCOUNT PAGE STYLING */
 
 .main-layout {
-    display: flex; 
+    display: flex;
   }
   
   .sidebar {
@@ -395,7 +395,7 @@ div.please-login a {
     padding: 30px;
     font-size: large;
     font-weight:bold; 
-    font-style: italic;
+    /* font-style: italic; */
   }
 
   .sidebar ul li a:hover {
@@ -406,8 +406,8 @@ div.please-login a {
     flex: 1; 
     padding: 20px; 
     width: 100%;
-    background-color: whitesmoke;
   }
+
 
 
 /* MAIN CONTENT ACCOUNT PAGE STYLING */
@@ -417,6 +417,57 @@ div.account-home {
         display: flex;
         flex-direction: column; 
         align-items: center;
+}
+
+/* GYM BOOKING STYLING */
+
+
+div.gym-bookings {
+  display: flex; 
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+div.gym-bookings form div {
+  display: flex; 
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 15px; 
+}
+
+div.gym-bookings form input {
+  width: 100%;
+}
+
+div.gym-bookings form select {
+  width: 100%;
+}
+
+div.current-gym-bookings {
+  margin-top: 25px; 
+  width: 75%; 
+  background-color: #349feb85;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 75px;
+  padding: 20px;
+}
+
+div.current-gym-bookings button {
+  margin-left: 10px;
+  padding: 10px;
+  color: white;
+  background-color: #349eeb;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+div.current-gym-bookings button:hover {
+  background-color: darkred;
 }
 
 /* SAUNA BOOKING STYLING */
@@ -435,8 +486,9 @@ div.date-selection {
 }
 
 div.current-bookings {
+  margin-top: 25px; 
   width: 75%; 
-  background-color: #349feb65;
+  background-color: #349feb85;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -445,13 +497,16 @@ div.current-bookings {
 }
 
 div.current-bookings button {
-  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 5px 10px;
   background-color: red;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  margin-left: 50px; 
 }
 
 div.current-bookings button:hover {

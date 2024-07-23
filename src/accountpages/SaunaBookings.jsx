@@ -6,8 +6,8 @@ import "../index.css"
 
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import saunamainimage from "../assets/saunamainimage.webp"
-
+import saunahighres from "../assets/sauna-highres.jpg"
+import bluecheckmark from "../assets/blue-check-mark.png"
 
 function SaunaBookings() {
     const [bookings, setBookings] = useState([]);
@@ -25,7 +25,7 @@ function SaunaBookings() {
     const timeSlots = [
       "6:00 AM - 7:00 AM", "7:00 AM - 8:00 AM", "8:00 AM - 9:00 AM",
       "9:00 AM - 10:00 AM", "10:00 AM - 11:00 AM", "11:00 AM - 12:00 PM",
-      "12:00 PM - 1:00 PM", "1:00 PM - 2:00 PM", "3:00 PM - 4:00 PM",
+      "12:00 PM - 1:00 PM", "1:00 PM - 2:00 PM", "2:00 PM - 3:00 PM", "3:00 PM - 4:00 PM",
       "4:00 PM - 5:00 PM", "5:00 PM - 6:00 PM", "6:00 PM - 7:00 PM",
       "7:00 PM - 8:00 PM"
     ];
@@ -138,9 +138,10 @@ function SaunaBookings() {
 
   return (
     <div className="sauna-bookings" >
-      <h1>Welcome to your Zauna Sauna Bookings Page!</h1>
+      <h1>Sauna Booking Page</h1>
+      <img src = {saunahighres} alt="saunapicture" height="500px" />
       <div className="current-bookings">
-      <h3>My Current Bookings</h3>
+      <h3>My Current Sauna Bookings</h3>
       <ul>
         {bookings.length > 0 ? (
           bookings.map(booking => (
@@ -150,7 +151,7 @@ function SaunaBookings() {
             </li>
           ))
         ) : (
-          <p>No current bookings found.</p>
+          <p>No current Sauna bookings found. Please place a reservation below!</p>
         )}
       </ul>
       </div>
@@ -159,7 +160,7 @@ function SaunaBookings() {
     
     { step === 1 && (
      
-        <div className="sauna-rooms"> 
+        <div className="sauna-rooms">
         <h3>Select Your Sauna Room Below to View Available Times</h3>
   
         { step === 1 && (
@@ -203,6 +204,7 @@ function SaunaBookings() {
     { step === 3 &&  (
         <div className = "confirm-booking">
           <h3>Confirm Booking</h3>
+          <img src = {bluecheckmark} height="75px"></img>
           <p> Would you like to book Sauna Room {selectedRoom} at {selectedTimeSlot}?</p>
           <button onClick={handleConfirmBooking}>Confirm</button>
           <button onClick ={handleBack}>Back</button>

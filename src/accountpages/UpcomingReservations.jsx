@@ -51,7 +51,7 @@ function UpcomingReservations(){
 
   return (
     <div className="upcoming-reservations">
-      <h1>Welcome to your Upcoming Reservations Page!</h1>
+      <h1>Your Upcoming Reservations</h1>
       <div className = "reservations-gym-bookings">
       <h3>Your Gym Bookings</h3>
       <ul>
