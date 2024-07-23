@@ -139,7 +139,7 @@ function SaunaBookings() {
   return (
     <div className="sauna-bookings" >
       <h1>Sauna Booking Page</h1>
-      <img src = {saunahighres} alt="saunapicture" height="500px" />
+      <img src = {saunahighres} alt="saunapicture" height="550px" />
       <div className="current-bookings">
       <h3>My Current Sauna Bookings</h3>
       <ul>

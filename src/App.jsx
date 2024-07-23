@@ -33,7 +33,7 @@ function App({userId}) {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
         <Route path="/contact-us" element={<ContactUs />} />
-        <Route path="/account" element={<MainAccountPageLayout isLoggedIn={isLoggedIn} />}>
+        <Route path="/account/" element={<MainAccountPageLayout isLoggedIn={isLoggedIn} />}>
           <Route index="/" element={<MyAccount />} />
           <Route path="gym-bookings" element={<GymBookings />} />
           <Route path="sauna-bookings" element={<SaunaBookings />} />
