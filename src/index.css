@@ -636,6 +636,49 @@ div.reservations-sauna-bookings{
   align-items: center;
 }
 
+/* ORDER PAGE STYLING */
+
+div.order-page h1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+div.menu-items {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  flex-wrap: wrap;
+}
+
+div.menu-item {
+  padding: 20px; 
+  margin: 20px; 
+  background-color: #349feb73;
+  width: 30%;
+  border-radius: 25px;
+}
+
+div.menu-item img {
+  height: 100px; 
+  border-radius: 100px;
+}
+
+div.order-summary {
+  display: flex;
+  align-items: end;
+}
+
+div.menu-items button {
+  background-color: black;
+  color: white; 
+  padding: 10px; 
+  border-radius: 10px;
+}
+
+div.menu-items button:hover {
+  background-color: #349eeb;
+}
 /* PROFILE PAGE STYLING */
 
 div.account-information {

@@ -34,12 +34,12 @@ function App({userId}) {
         <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
         <Route path="/contact-us" element={<ContactUs />} />
         <Route path="/account/" element={<MainAccountPageLayout isLoggedIn={isLoggedIn} />}>
-          <Route index="/" element={<MyAccount />} />
-          <Route path="gym-bookings" element={<GymBookings />} />
-          <Route path="sauna-bookings" element={<SaunaBookings />} />
-          <Route path="upcoming-reservations" element={<UpcomingReservations />} />
-          <Route path="order-chargebar" element={<OrderChargeBar />} />
-          <Route path="my-profile" element={<MyProfile />} />
+          <Route index="/" element={<MyAccount isLoggedIn={isLoggedIn}/>} />
+          <Route path="gym-bookings" element={<GymBookings />}isLoggedIn={isLoggedIn} />
+          <Route path="sauna-bookings" element={<SaunaBookings />} isLoggedIn={isLoggedIn} />
+          <Route path="upcoming-reservations" element={<UpcomingReservations />} isLoggedIn={isLoggedIn} />
+          <Route path="order-chargebar" element={<OrderChargeBar />} isLoggedIn={isLoggedIn} />
+          <Route path="my-profile" element={<MyProfile />} isLoggedIn={isLoggedIn} />
         </Route>
       </Routes>
       </>
