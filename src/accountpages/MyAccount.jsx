@@ -1,7 +1,7 @@
 import ZaunaFull from "../assets/ZaunaFull.jpg"
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-
+import Zauna from "../assets/Zauna.png"
 function MyAccount({ isLoggedIn }){
   const [userData, setUserData] = useState(null);
   const [error, setError] = useState(null);
@@ -50,9 +50,10 @@ function MyAccount({ isLoggedIn }){
   return (
     <div className="account-home">
       <h1>Welcome to your Zauna Profile, {userData.name}!</h1>
+      <img src = {Zauna} height = "250px"></img>
       <img src="https://media.istockphoto.com/id/1366052585/photo/shot-of-a-group-of-friends-hanging-out-before-working-out-together.jpg?s=612x612&w=0&k=20&c=rj7LgjUuXde0eLWikS1rvDnsKDdBotgsy9eM5HDzko0=" alt="Group of friends hanging out before working out"></img>
-      <p>Getting Started!</p>
-      <p>Navigate to the left-hand sidebar to Book A Gym Time, Reserve a Sauna Time, View Your Upcoming Reservations, and Place an order at the Charge Bar!</p>
+      <h1>Getting Started!</h1>
+      <h3>Navigate to the left-hand sidebar to Book A Gym Time, Reserve a Sauna Time, View Your Upcoming Reservations, and Place an order at the Charge Bar!</h3>
     </div>
   );
 }

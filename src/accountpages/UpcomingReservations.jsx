@@ -52,14 +52,20 @@ function UpcomingReservations(){
   return (
     <div className="upcoming-reservations">
       <h1>Your Upcoming Reservations</h1>
+      <h2> Please show this page to the front desk staff to ensure access during your allotted time slots!</h2>
+      <img src = "https://media.istockphoto.com/id/1267099167/photo/fitness-woman-at-a-yoga-class.jpg?s=612x612&w=0&k=20&c=LNtfDKM5ltklRkuGgzJ30JCGCeZkE7G_iV9PBRPMgbw=" />
       <div className = "reservations-gym-bookings">
       <h3>Your Gym Bookings</h3>
       <ul>
-        {gymBookings.map(booking => (
+      {gymBookings.length > 0 ? (
+        gymBookings.map(booking => (
           <li key={booking.id}>
-            {format(parseISO(booking.date), "MMMM do, yyyy")} at {booking.timeSlot}
+            Your Gym Session is set for {format(parseISO(booking.date), "MMMM do, yyyy")} at {booking.timeSlot}
             </li>
-        ))}
+          ))
+        ) : (
+          <p>No current Gym Bookings found.</p>
+        )}
       </ul>
       </div>
       <div className = "reservations-sauna-bookings">
@@ -69,14 +75,15 @@ function UpcomingReservations(){
         {saunaBookings.length > 0 ? (
           saunaBookings.map(booking => (
             <li key={booking.id}>
-              Your Booking is set for Sauna Room {booking.saunaRoomId} on {new Date(booking.date).toLocaleDateString()} at {booking.timeSlot}
+              Your Sauna Session is set for Sauna Room {booking.saunaRoomId} on {new Date(booking.date).toLocaleDateString()} at {booking.timeSlot}
             </li>
           ))
         ) : (
-          <p>No current bookings found.</p>
+          <p>No current Sauna bookings found.</p>
         )}
       </ul>
       </div>
+      
     </div>
   );
 };

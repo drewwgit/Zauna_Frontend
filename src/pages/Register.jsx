@@ -65,7 +65,7 @@ function Register() {
       <input
         value={name}
         onChange={(e) => setName(e.target.value)}
-        placeholder="Enter your first and last name ...."
+        placeholder="Enter your first and last name seperated by a space ...."
       />
       <br />
       <input

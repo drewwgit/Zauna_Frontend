@@ -52,7 +52,7 @@ function MyProfile({ isLoggedIn }) {
   }
 
   return (
-    <div className="Account">
+    <div className="account-information">
       <h2>Your Account Information</h2>
       <button onClick={handleLogout}>Log Out</button>
       {error && <p style={{ color: 'red' }}>{error}</p>}

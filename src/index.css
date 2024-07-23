@@ -146,6 +146,7 @@ color: #349eeb;
   background: #000;
   padding: 20px 0;
   text-align: center;
+  justify-content: center;
 }
 
 .footer p {
@@ -346,6 +347,9 @@ form.register-form {
   background-color: #00000085;
 }
 
+form.register-form h3 {
+  color:white;
+}
 form.register-form input {
   width: 30%;
 }
@@ -380,6 +384,9 @@ div.please-login a {
   .sidebar ul {
     list-style-type: none; 
     padding: 0; 
+    display: flex; 
+    flex-direction: column;
+    justify-content: space-around;
   }
   
   .sidebar ul li {
@@ -417,10 +424,12 @@ div.account-home {
         display: flex;
         flex-direction: column; 
         align-items: center;
+        background-color: #349feb85;
+        border-radius: 25px;
+        padding: 35px;
 }
 
 /* GYM BOOKING STYLING */
-
 
 div.gym-bookings {
   display: flex; 
@@ -558,7 +567,7 @@ div.sauna-bookings button {
   padding: 15px;
   margin-top: 20px; 
   font-weight: bold;
-  background-color: #349eeb;
+  background-color: #349eef;
   font-style: bold;
   border-radius: 25px;
   border-style: none;
@@ -583,7 +592,59 @@ button.back-button {
   margin-top: 10px;
 }
 
-  /* FORM STYLING */
+/* UPCOMING RESERVATIONS PAGE STYLING */
+
+div.upcoming-reservations {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  background-color: #349feb4c;
+  border-radius: 25px;
+}
+
+div.reservations-gym-bookings{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+div.reservations-sauna-bookings{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* PROFILE PAGE STYLING */
+
+div.account-information {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  background-color: #349feb4c;
+  border-radius: 25px;
+  padding: 20px; 
+}
+
+div.account-information button {
+  width: 80%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px; 
+  margin-left: 20px; 
+  font-weight: bold;
+  background-color: #349eef;
+  font-style: bold;
+  border-radius: 25px;
+  border-style: none;
+}
+
+div.account-information button:hover {
+  background-color: #349feb89;
+}
+
+  /* GENERAL FORM STYLING */
 
 form {
     /* margin: 15px; */
