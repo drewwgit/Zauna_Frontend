@@ -11,7 +11,8 @@ app.use(express.json());
 app.use(cors());
 
 const prisma = new PrismaClient()
-const port = 8080
+
+const port = process.env.PORT || 8080;
 
 // app.get('/', (req, res) => {
 //   res.send('Hello World!')
