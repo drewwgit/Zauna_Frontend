@@ -147,6 +147,7 @@ function SaunaBookings() {
           bookings.map(booking => (
             <li key={booking.id}>
               Sauna Room {booking.saunaRoomId} on {new Date(booking.date).toLocaleDateString()} at {booking.timeSlot}
+              <br></br>
               <button onClick={() => handleCancelBooking(booking.id)}>Cancel</button>
             </li>
           ))

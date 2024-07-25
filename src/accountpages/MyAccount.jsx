@@ -46,7 +46,6 @@ function MyAccount({ isLoggedIn }){
   if (!userData) {
     return <div>Loading...</div>;
   }
-
   return (
     <div className="account-home">
       <h1>Welcome to your Zauna Profile, {userData.name}!</h1>

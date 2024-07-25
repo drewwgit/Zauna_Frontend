@@ -31,7 +31,7 @@ const sections = [
         title: 'Private Sauna Rooms ',
         subtitle: "Rejuvenate your body the right way. Privately",
         buttonText: "Learn More About Sauna Benefits",
-        buttonLink: '#sauna',
+        buttonLink: '/aboutus',
     },
 ]
 

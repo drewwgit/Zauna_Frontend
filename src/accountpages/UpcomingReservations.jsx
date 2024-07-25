@@ -75,7 +75,7 @@ function UpcomingReservations(){
         {saunaBookings.length > 0 ? (
           saunaBookings.map(booking => (
             <li key={booking.id}>
-              Your Sauna Session is set for Sauna Room {booking.saunaRoomId} on {new Date(booking.date).toLocaleDateString()} at {booking.timeSlot}
+              Your Sauna Session is set for Sauna Room {booking.saunaRoomId} on {new Date(booking.date).toLocaleDateString()} from {booking.timeSlot}
             </li>
           ))
         ) : (

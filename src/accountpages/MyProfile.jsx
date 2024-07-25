@@ -58,9 +58,9 @@ function MyProfile({ isLoggedIn }) {
       {error && <p style={{ color: 'red' }}>{error}</p>}
       {userData ? (
         <div>
-          <p><strong>First Name:</strong> {userData.name}</p>
-          <p><strong>Email:</strong> {userData.email}</p>
-          <button onClick={handleLogout}>Log Out</button>
+          <p><strong>First Name: </strong> {userData.name}</p>
+          <p><strong>Email: </strong> {userData.email}</p>
+          <p><strong>User ID#: </strong>{userData.id}</p>
         </div>
       ) : (
         <p>Loading...</p>

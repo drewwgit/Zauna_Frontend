@@ -150,7 +150,8 @@ color: #349eeb;
 }
 
 .footer p {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  color: white;
 }
 
 .footer ul {
@@ -167,6 +168,7 @@ color: #349eeb;
   color: #fff;
   text-decoration: none;
   font-size: 14px;
+
 }
 
 .footer ul li a:hover {
@@ -387,6 +389,9 @@ div.please-login-content {
 
 .main-layout {
     display: flex;
+    flex: 1; 
+    height: 100vh; 
+    /* overflow: hidden;  */
   }
   
   .sidebar {
@@ -394,6 +399,7 @@ div.please-login-content {
     height: 100vh; 
     background-color: #349feb; 
     padding: 20px; 
+    overflow-y: auto;
     /* border-right: 1px solid #ddd;  */
   }
   
@@ -435,6 +441,7 @@ div.please-login-content {
     flex: 1; 
     padding: 20px; 
     width: 100%;
+    overflow-y: auto;
   }
 
 
@@ -483,7 +490,7 @@ div.current-gym-bookings {
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-radius: 75px;
+  border-radius: 50px;
   padding: 20px;
 }
 
@@ -523,7 +530,7 @@ div.current-bookings {
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-radius: 75px;
+  border-radius: 50px;
   padding: 20px;
 }
 
@@ -638,17 +645,28 @@ div.reservations-sauna-bookings{
 
 /* ORDER PAGE STYLING */
 
+div.order-page {
+  overflow-y: auto;
+}
+
 div.order-page h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+div.menu-items-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  overflow-y: auto;
+}
+
 div.menu-items {
   display: flex;
-  flex-direction: row;
-  align-items: start;
   flex-wrap: wrap;
+  width: auto;   
+  overflow-y: auto;
 }
 
 div.menu-item {
@@ -657,16 +675,48 @@ div.menu-item {
   background-color: #349feb73;
   width: 30%;
   border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+div.menu-item h2 {
+  padding-left: 20px;
 }
 
 div.menu-item img {
-  height: 100px; 
-  border-radius: 100px;
+  height: 110px; 
+  border-radius: 75px;
 }
 
 div.order-summary {
   display: flex;
-  align-items: end;
+  flex-direction: column;
+  align-items: center;
+  background-color: #349eeb;
+  padding: 20px; 
+  border-radius: 25px;
+  min-width: 450px;
+  margin: 75px;
+  flex-shrink: 0; 
+  font-size: larger;
+  color: white;
+}
+
+div.order-summary img {
+  height: 50px; 
+  margin-right: 15px; 
+}
+
+div.order-summary button {
+  background-color: black;
+  color: white;
+  border-radius: 10px; 
+  height: 50px; 
+}
+
+div.order-summary button:hover {
+  background-color: rgb(46, 184, 46)
 }
 
 div.menu-items button {
@@ -679,6 +729,7 @@ div.menu-items button {
 div.menu-items button:hover {
   background-color: #349eeb;
 }
+
 /* PROFILE PAGE STYLING */
 
 div.account-information {
@@ -748,3 +799,68 @@ form button:hover {
     background-color: #349eeb;
   }
 
+  /* CONTACT US STYLING */
+
+  .contact-us-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #349eef;
+    height: 100vh; 
+    background-size: cover; 
+    background-position: center;
+  }
+  
+  .contact-us-page h1 {
+    margin-bottom: 20px;
+  }
+  
+  .contact-form {
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    background-color: #349eeb;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #217dbb;
+  }
+  
+  .confirmation-message {
+    margin-top: 20px;
+    color: green;
+  }

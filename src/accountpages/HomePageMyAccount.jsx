@@ -27,7 +27,7 @@ if (!token) {
           <li><NavLink to="/account/gym-bookings" className={({ isActive }) => (isActive ? 'active-link' : '')}>Book A Gym Time</NavLink></li>
           <li><NavLink to="/account/sauna-bookings" className={({ isActive }) => (isActive ? 'active-link' : '')}>Reserve A Sauna Time</NavLink></li>
           <li><NavLink to="/account/upcoming-reservations" className={({ isActive }) => (isActive ? 'active-link' : '')}>Your Upcoming Reservations</NavLink></li>
-          <li><NavLink to="/account/order-chargebar" className={({ isActive }) => (isActive ? 'active-link' : '')}>Order From the Charge Bar</NavLink></li>
+          <li><NavLink to="/account/order-chargebar" className={({ isActive }) => (isActive ? 'active-link' : '')}>Order From the Recharge Bar</NavLink></li>
           <li><NavLink to="/account/my-profile" className={({ isActive }) => (isActive ? 'active-link' : '')}>My Profile Information</NavLink></li>
         </ul>
       </aside>
